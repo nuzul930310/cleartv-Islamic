@@ -41,7 +41,8 @@ public class GlassView extends View {
         // The slab keeps its old size: this inset once made room for an outer glow, and the tile
         // positions and the spring are measured around it.
         float inset = 6f * density;
-        rect.set(inset, inset, getWidth() - inset, getHeight() - inset);
+                float out = 2f * density;
+        rect.set(inset - out, inset - out, getWidth() - inset + out, getHeight() - inset + out);
         // A rim only: the slab sits on top of the tile, so any fill would wash the app out.
         rim.fit(rect);
         canvas.drawRoundRect(rect, radius, radius, rim.paint);
